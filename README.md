@@ -1,6 +1,27 @@
+# <img src="./public/javascript.svg" alt="JavaScript" height="23"/>&#8239;Front-end entrance<img src="./public/vite.svg" alt="Vite" height="23"/>
+Let's take the task below as a challenge - and try Pixel Perfect layout in true hard way:  
+all elements will come from **JavaScript** only! No innerHTML. No regrets.  
 
+<img src="https://rolling-scopes-school.github.io/front42-JSFE2021Q1/presentation/z/front42.jpg" alt="logo" height="23"/>  
+
+Clone this repository - for example with SSH:  
+**git clone** git@github.com:front42/front-end-entrance-exam.git  
+Go to project directory and install dependencies - **npm i**  
+Use these commands to enjoy, for example:
+- npm **run build** - runs project in production mode, creating dist folder
+- npm **run preview** - watch builded project from dist folder
+- npm **run dev** - runs project in dev watch mode
+
+More commands are in **package.json** file.
+
+Project runs on **http://localhost:5173/front-end-entrance-exam/**  
+Use **PerfectPixel** extension for Chrome with **CV-view.png** image in project directory.  
+
+Instead of all these headaches, just open the deployed version:  
+**https://front42.github.io/front-end-entrance-exam/**  
+
+### Task base repository: https://github.com/jegius/front-end-entrance-exam
 # Вступительный экзамен для Front-end разработчика
-
 ## Задача
 
 Вашей задачей является создание веб-страницы с резюме, которое должно быть сверстано по данному шаблону. Страница должна иметь возможность изменять текст элементов и предоставлять кнопку "Скачать" для скачивания резюме в формате PDF. В качестве дополнительного задания, необходимо анимировать изменения элементов резюме с помощью CSS-анимаций и добавить эффект "Material Wave".
@@ -49,4 +70,3 @@
 
 Prettier: https://prettier.io
    Prettier - это инструмент форматирования кода, который автоматически обрабатывает ваш JavaScript (а также CSS, HTML и другие языки), чтобы сделать его более читабельным и соответствующим стандартам.
-
