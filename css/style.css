@@ -107,19 +107,18 @@ h2 {
 }
 
 .language-meter {
+  margin-top: 2px;
   width: 168px;
-}
-
-meter::-webkit-meter-bar {
-  margin-bottom: -6px;
   height: 11px;
   border: none;
   border-radius: 3px;
+  background-color: #28D979;
 }
 
-meter::-webkit-meter-optimum-value {
-  background-color: #28D979;
-  border-radius: 3px;
+.language:last-child span {
+  position: relative;
+  left: -39px;
+  width: 53%;
 }
 
 .experience {
@@ -383,4 +382,322 @@ a {
   font-weight: 400;
   color: #fff;
   text-decoration: none;
+}
+
+@media screen and (max-width: 595px) {
+  .container {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    max-width: 440px;
+    height: 990px;
+    padding-bottom: 115px;
+  }
+
+  .profile-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .info-block {
+    margin-bottom: 15px;
+  }
+
+  .hello {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 250px;
+    height: 37px;
+  }
+
+  .hello-paragraph {
+    margin-right: -5px;
+  }
+
+  h1 {
+    margin: -5px 0;
+  }
+
+  .speciality {
+    margin: -3px 0 0 -5px;
+  }
+
+  .languages {
+    position: absolute;
+    top: 65px;
+    left: 170px;
+    width: 250px;
+    height: 80px;
+    padding: 0 15px;
+  }
+
+  .languages h2 {
+    margin: -5px 0;
+  }
+
+  .language {
+    margin: -5px 0;
+  }
+
+  .language-meter {
+    width: 148px;
+  }
+
+  .language:last-child span {
+    position: relative;
+    left: -31px;
+  }
+
+  .experience {
+    width: 400px;
+    height: 350px;
+  }
+
+  .experience-subblock {
+    width: 372px;
+  }
+
+  .experience h2 {
+    margin: -5px 0 -12px;
+  }
+
+  li {
+    margin-left: 8px;
+  }
+
+  .education {
+    width: 142px;
+    height: 392px;
+  }
+
+  .education h2 {
+    margin: -5px 0 5px;
+  }
+
+  .interests {
+    margin-left: 20px;
+    width: 238px;
+    height: 160px;
+  }
+
+  .interests h2 {
+    margin: -5px 90px 0 0;
+  }
+
+  .interest {
+    margin-right: 5px;
+    padding: 5px 8px;
+  }
+
+  .tools {
+    position: absolute;
+    top: 701px;
+    left: 182px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 238px;
+    height: 217px;
+  }
+
+  .tools h2 {
+    margin: -5px 120px 20px 0;
+  }
+
+  .tools-group {
+    margin: -12px 0px 0 0;
+    padding-bottom: 80px;
+    width: 65px;
+    height: 170px;
+  }
+
+  .tools-group a {
+    margin: 5px 3px;
+  }
+
+  .tools-group img {
+    width: 25px;
+  }
+
+  .chat {
+    top: 930px;
+    left: 20px;
+    width: 400px;
+    height: 50px;
+    padding: 5px 15px;
+  }
+
+  .email {
+    margin: 0;
+  }
+
+  .download-btn {
+    margin: 1px auto 10px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .container {
+    max-width: 320px;
+    height: 1316px;
+    padding: 7px;
+  }
+
+  .profile-img {
+    margin-right: 7px;
+    width: 148px;
+    height: 148px;
+  }
+
+  .languages,
+  .experience,
+  .chat {
+    width: 303px;
+  }
+
+  .hello {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 148px;
+    height: 148px;
+  }
+
+  .hello-paragraph {
+    margin-right: -5px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .speciality {
+    margin: 0;
+  }
+
+  .languages {
+    top: 162px;
+    left: 7px;
+  }
+
+  .language-meter {
+    width: 200px;
+  }
+
+  .language:last-child span {
+    left: -55px;
+  }
+
+  .experience {
+    margin-bottom: 10px;
+    position: relative;
+    top: 67px;
+    height: 442px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .experience h2 {
+    margin: -7px 0 5px;
+  }
+
+  .experience-subblock {
+    margin: 0 0 10px;
+    width: 276px;
+    padding-right: 10px;
+  }
+
+  .experience-subblock ul {
+    margin-left: 7px;
+  }
+
+  .manager {
+    height: 108px;
+  }
+
+  .position-name {
+    width: 122px;
+  }
+
+  .designer {
+    height: 142px;
+  }
+
+  .assistant {
+    height: 130px;
+  }
+
+  .education {
+    position: relative;
+    top: 53px;
+    margin: 0 0 -10px 0;
+  }
+
+  .tools {
+    margin-left: -24px;
+    width: 152px;
+    height: 392px;
+    align-items: center;
+  }
+
+  .tools h2 {
+    margin: -5px 120px 6px 0;
+  }
+
+  .tools-group {
+    margin: 0 auto 12px;
+    width: 100px;
+    padding: 0 5px;
+  }
+
+  .design {
+    height: 140px;
+  }
+
+  .no-code {
+    height: 100px;
+  }
+
+  .artoficial-intelligence {
+    height: 84px;
+  }
+
+  .tools-group:last-child .tools-group-mark {
+    margin: -5px 0 3px;
+  }
+
+  .tools-group-mark {
+    margin: -5px 20px 2px;
+  }
+
+  .interests {
+    margin: 60px 0 74px 0;
+    width: 303px;
+    height: 120px;
+  }
+
+  .interests h2 {
+    margin: -8px 160px 0 0;
+  }
+
+  .interest {
+    padding: 4px 6px;
+  }
+
+  .chat {
+    top: 1232px;
+    left: 7px;
+    width: 303px;
+    height: 72px;
+  }
+
+  .download-btn {
+    margin: -2px auto 10px;
+  }
 }

@@ -77,7 +77,7 @@ for (let i = 0; i < languagesNames.length; i++) {
   language.classList.add('language');
   language.textContent = languagesNames[i];
   languagesBlock.append(language);
-  const languageMeter = document.createElement('meter');
+  const languageMeter = document.createElement('span');
   languageMeter.setAttribute('value', 100);
   languageMeter.setAttribute('min', 0);
   if (i == 2) {
