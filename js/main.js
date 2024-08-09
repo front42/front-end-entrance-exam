@@ -1,5 +1,3 @@
-'use strict';
-
 import '../css/style.css';
 import html2pdf from 'html2pdf.js';
 
@@ -7,25 +5,26 @@ const container = document.createElement('div');
 container.classList.add('container');
 document.body.append(container);
 
-// document.addEventListener('mouseover', e => e.target.style.color = 'green');
-// document.addEventListener('mouseout', e => e.target.style.color = 'inherit');
-
-const printer = element => {
+const downloadPdf = (element) => {
   html2pdf(element, {
     filename: 'CV.pdf',
     image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 4, dpi: 330, letterRendering: true },
+    html2canvas: {
+      scale: 4,
+      dpi: 330,
+      letterRendering: true,
+    },
     jsPDF: { orientation: 'portrait' },
   });
 };
 
 const downloadBtn = document.createElement('button');
-downloadBtn.classList.add('download-btn');
+downloadBtn.classList.add('download-btn', 'rippled-element');
 downloadBtn.textContent = 'Download';
 document.body.append(downloadBtn);
-downloadBtn.addEventListener('click', () => printer(container));
+downloadBtn.addEventListener('click', () => downloadPdf(container));
 
-// create info-blocks
+// Create info-blocks
 const infoBlockNames = [
   'profile-img',
   'hello',
@@ -37,8 +36,9 @@ const infoBlockNames = [
 ];
 
 const profileImg = document.createElement('img');
-// 'cause of config base: Files in the public directory are served at the root path. Instead of /public/profileImgBig.png, use /profileImgBig.png.
-profileImg.src = 'profile-img.png'; // public/
+// Because of Vite config base: Files in the public directory are served at the root path.
+// Instead of /public/profileImgBig.png, use /profileImgBig.png.
+profileImg.src = 'profile-img.png';
 profileImg.classList.add('info-block', `${infoBlockNames[0]}`);
 container.append(profileImg);
 
@@ -49,14 +49,15 @@ for (let i = 1; i < infoBlockNames.length; i++) {
   container.append(infoBlock);
   if (i > 1) {
     const blockName = document.createElement('h2');
-    blockName.textContent =
-      infoBlockNames[i][0].toUpperCase() + infoBlockNames[i].slice(1);
+    blockName.classList.add('rippled-element');
+    blockName.textContent = infoBlockNames[i][0].toUpperCase() + infoBlockNames[i].slice(1);
     infoBlock.append(blockName);
   }
 }
 
 // Hello
 const helloBlock = document.querySelector('.hello');
+helloBlock.classList.add('rippled-element');
 const helloParagraph = document.createElement('p');
 helloParagraph.classList.add('hello-paragraph');
 helloParagraph.innerText = 'Hello👋🏻 I’m';
@@ -74,19 +75,23 @@ const languagesNames = ['English', 'Malayalam', 'Hindi'];
 const languagesBlock = document.querySelector('.languages');
 for (let i = 0; i < languagesNames.length; i++) {
   const language = document.createElement('div');
-  language.classList.add('language');
-  language.textContent = languagesNames[i];
-  languagesBlock.append(language);
-  const languageMeter = document.createElement('span');
-  languageMeter.setAttribute('value', 100);
-  languageMeter.setAttribute('min', 0);
-  if (i == 2) {
-    languageMeter.setAttribute('value', 77);
-  }
-  languageMeter.setAttribute('max', 100);
+  language.classList.add('language', 'rippled-element');
+  const languageName = document.createElement('span');
+  languageName.textContent = languagesNames[i];
+  language.append(languageName);
+  const languageMeter = document.createElement('div');
   languageMeter.classList.add('language-meter');
   language.append(languageMeter);
+  languagesBlock.append(language);
 }
+
+const setLanguageProgress = (event) => {
+  const language = event.currentTarget;
+  const meter = language.querySelector('.language-meter');
+  meter.style.width = `${event.clientX - meter.getBoundingClientRect().x + 5}px`;
+};
+const languages = document.querySelectorAll('.language');
+languages.forEach((language) => language.addEventListener('click', setLanguageProgress));
 
 // Experience
 const experiencePositions = ['manager', 'designer', 'assistant'];
@@ -95,7 +100,8 @@ for (let i = 0; i < experiencePositions.length; i++) {
   const experienceSubblock = document.createElement('div');
   experienceSubblock.classList.add(
     'experience-subblock',
-    experiencePositions[i]
+    experiencePositions[i],
+    'rippled-element',
   );
   experienceBlock.append(experienceSubblock);
 }
@@ -113,12 +119,9 @@ managerTime.append(mostRecentMark);
 manager.append(managerTime);
 
 const managerPositionAndOrganization = document.createElement('div');
-managerPositionAndOrganization.classList.add(
-  'manager-position-and-organization'
-);
+managerPositionAndOrganization.classList.add('manager-position-and-organization');
 
 const managerPositionInfo = document.createElement('div');
-managerPositionInfo.classList.add('position-info'); // ?
 
 const managerPositionName = document.createElement('p');
 managerPositionName.classList.add('position-name');
@@ -156,12 +159,9 @@ designerTime.classList.add('position-time');
 designer.append(designerTime);
 
 const designerPositionAndOrganization = document.createElement('div');
-designerPositionAndOrganization.classList.add(
-  'designer-position-and-organization'
-);
+designerPositionAndOrganization.classList.add('designer-position-and-organization');
 
 const designerPositionInfo = document.createElement('div');
-designerPositionInfo.classList.add('position-info'); // ?
 
 const designerPositionName = document.createElement('p');
 designerPositionName.classList.add('position-name');
@@ -200,12 +200,9 @@ assistantTime.classList.add('position-time');
 assistant.append(assistantTime);
 
 const assistantPositionAndOrganization = document.createElement('div');
-assistantPositionAndOrganization.classList.add(
-  'assistant-position-and-organization'
-);
+assistantPositionAndOrganization.classList.add('assistant-position-and-organization');
 
 const assistantPositionInfo = document.createElement('div');
-assistantPositionInfo.classList.add('position-info'); // ?
 
 const assistantPositionName = document.createElement('p');
 assistantPositionName.classList.add('position-name');
@@ -241,12 +238,9 @@ const toolsBlock = document.querySelector('.tools');
 const toolsGroupsNames = ['design', 'no-code', 'artoficial intelligence'];
 for (let i = 0; i < toolsGroupsNames.length; i++) {
   const toolsGroup = document.createElement('div');
-  toolsGroup.classList.add(
-    'tools-group',
-    toolsGroupsNames[i].replaceAll(' ', '-')
-  );
+  toolsGroup.classList.add('tools-group', toolsGroupsNames[i].replaceAll(' ', '-'));
   const toolsGroupMark = document.createElement('span');
-  toolsGroupMark.classList.add('tools-group-mark');
+  toolsGroupMark.classList.add('tools-group-mark', 'rippled-element');
   toolsGroupMark.textContent = toolsGroupsNames[i];
   toolsGroupMark.setAttribute('contenteditable', true);
   toolsGroup.setAttribute('contenteditable', false);
@@ -254,7 +248,7 @@ for (let i = 0; i < toolsGroupsNames.length; i++) {
   toolsBlock.append(toolsGroup);
 }
 
-// links in design-group
+// Links in design-group
 const designGroup = document.querySelector('.design');
 const linksDesign = [
   'https://www.figma.com/',
@@ -282,7 +276,7 @@ for (let i = 0; i < linksDesign.length; i++) {
   designGroup.append(link);
 }
 
-// links in no-code-group
+// Links in no-code-group
 const noCodeGroup = document.querySelector('.no-code');
 const linksNoCode = [
   'https://zapier.com/',
@@ -306,10 +300,8 @@ for (let i = 0; i < linksNoCode.length; i++) {
   noCodeGroup.append(link);
 }
 
-// links in artoficial-intelligence-group
-const artoficialIntelligenceGroup = document.querySelector(
-  '.artoficial-intelligence'
-);
+// Links in artoficial-intelligence-group
+const artoficialIntelligenceGroup = document.querySelector('.artoficial-intelligence');
 const linksArtoficialIntelligence = [
   'https://openai.com/chatgpt/',
   'https://copilot.microsoft.com/',
@@ -342,11 +334,11 @@ const educationCourses = ['Coursera', 'University of Kerala', 'Coursera'];
 const educationBlock = document.querySelector('.education');
 for (let i = 0; i < educationYears.length; i++) {
   const educationSubblock = document.createElement('div');
-  educationSubblock.classList.add('education-subblock');
+  educationSubblock.classList.add('education-subblock', 'rippled-element');
   const subblockYear = document.createElement('h2');
   subblockYear.textContent = educationYears[i];
   educationSubblock.append(subblockYear);
-  if (i == 0) {
+  if (i === 0) {
     const heart = document.createElement('img');
     heart.src = 'yellow-heart.svg';
     educationSubblock.append(heart);
@@ -382,14 +374,14 @@ const interestsList = [
 const interestsBlock = document.querySelector('.interests');
 for (let i = 0; i < interestsList.length; i++) {
   const interest = document.createElement('span');
-  interest.classList.add('interest');
+  interest.classList.add('interest', 'rippled-element');
   interest.textContent = interestsList[i];
   interestsBlock.append(interest);
 }
 
 // Let's chat
 const chatBlock = document.createElement('div');
-chatBlock.classList.add('info-block', 'chat');
+chatBlock.classList.add('info-block', 'chat', 'rippled-element');
 chatBlock.setAttribute('contenteditable', true);
 chatBlock.textContent = 'Let´s chat! I´m ready to work on excinting projects';
 container.append(chatBlock);
@@ -401,3 +393,27 @@ email.setAttribute('contenteditable', false);
 email.setAttribute('href', `mailto:${email.textContent}`);
 email.setAttribute('target', '_blank');
 chatBlock.append(email);
+
+// Material Ripple
+const createRipple = (event) => {
+  const element = event.currentTarget;
+  const circle = document.createElement('span');
+  const diameter = Math.max(element.clientWidth, element.clientHeight);
+  const radius = diameter / 2;
+
+  circle.style.width = `${diameter}px`;
+  circle.style.height = `${diameter}px`;
+  circle.style.left = `${event.clientX - element.getBoundingClientRect().x - radius}px`;
+  circle.style.top = `${event.clientY - element.getBoundingClientRect().y - radius}px`;
+  circle.classList.add('ripple');
+
+  element.appendChild(circle);
+
+  setTimeout(
+    () => document.getElementsByClassName('ripple').forEach((ripple) => ripple.remove()),
+    1000,
+  );
+};
+
+const rippledElements = document.querySelectorAll('.rippled-element');
+rippledElements.forEach((element) => element.addEventListener('click', createRipple));
