@@ -33,17 +33,46 @@ body {
   font-style: inherit;
   font-size: 14px;
   font-weight: 600;
+  color: #fff;
   border: none;
   border-radius: 12px;
-  cursor: pointer;
-  transition: .3s;
   background-color: #28D979;
-  color: #fff;
+  transition: .3s;
+  cursor: pointer;
 }
 
 .download-btn:hover {
   box-shadow: 0 0 16px -4px #28D979;
   text-shadow: 0 0 1px #fff;
+}
+
+.download-btn:active {
+  box-shadow: 0 0 10px -4px #28D979, inset 0 0 15px -3px #000;
+  text-shadow: 0 0 4px #fff;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple .7s ease-in-out;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+.rippled-element {
+  position: relative;
+  overflow: hidden;
+}
+
+h2.rippled-element {
+  overflow: visible;
 }
 
 .info-block {
@@ -52,6 +81,7 @@ body {
   padding: 12px;
   border-radius: 12px;
   background-color: #F0F0F0;
+  overflow: hidden;
 }
 
 p {
@@ -67,7 +97,7 @@ h1 {
 
 h2 {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -.04px;
 }
 
@@ -92,6 +122,7 @@ h2 {
 
 .languages {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: space-evenly;
   width: 267px;
@@ -99,25 +130,32 @@ h2 {
 }
 
 .language {
+  position: relative;
+  overflow: visible;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-top: 4px;
   font-size: 10px;
   font-weight: 500;
 }
 
+.language span {
+  width: 75px;
+}
+
 .language-meter {
   margin-top: 2px;
   width: 168px;
+  max-width: 69%;
   height: 11px;
   border: none;
   border-radius: 3px;
   background-color: #28D979;
+  transition: .3s;
 }
 
-.language:last-child span {
-  position: relative;
-  left: -39px;
+.language:last-child .language-meter {
+  margin-top: 3px;
   width: 53%;
 }
 
@@ -133,16 +171,16 @@ h2 {
 .experience-subblock {
   width: 388px;
   padding: 10px 9px;
-  border-radius: 10px;
   font-size: 8px;
   font-weight: 500;
+  border-radius: 10px;
 }
 
 .manager {
   margin-top: 6px;
   height: 76px;
-  background-color: #28D979;
   color: #fff;
+  background-color: #28D979;
 }
 
 .manager-time {
@@ -157,7 +195,7 @@ h2 {
   padding: 2px;
   text-align: center;
   color: #DDF163;
-  background-color: rgba(126, 115, 18, 0.4);
+  background-color: rgba(126, 115, 18, .4);
   border-radius: 59px;
 }
 
@@ -166,11 +204,6 @@ h2 {
 .assistant-position-and-organization {
   display: flex;
   justify-content: space-between;
-}
-
-.position-info {
-  display: flex;
-  flex-direction: column;
 }
 
 .position-name {
@@ -228,7 +261,7 @@ pre {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   margin: 15px auto 0;
   width: 76px;
   padding-bottom: 4px;
@@ -287,7 +320,6 @@ a {
   display: flex;
   flex-direction: column;
   padding: 9px 8px;
-
   margin-bottom: 12px;
   width: 116px;
   height: 96px;
@@ -384,6 +416,11 @@ a {
   text-decoration: none;
 }
 
+.active {
+  color: yellow;
+  text-shadow: 0 0 5px #28D979;
+}
+
 @media screen and (max-width: 595px) {
   .container {
     display: flex;
@@ -443,12 +480,11 @@ a {
   }
 
   .language-meter {
-    width: 148px;
+    max-width: 144px;
   }
 
-  .language:last-child span {
-    position: relative;
-    left: -31px;
+  .language:last-child .language-meter {
+    width: 50%;
   }
 
   .experience {
@@ -588,10 +624,11 @@ a {
 
   .language-meter {
     width: 200px;
+    max-width: 72%;
   }
 
-  .language:last-child span {
-    left: -55px;
+  .language:last-child .language-meter {
+    width: 55%;
   }
 
   .experience {
