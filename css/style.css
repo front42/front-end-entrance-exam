@@ -96,6 +96,7 @@ h1 {
 }
 
 h2 {
+  width: 100%;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -.04px;
@@ -286,7 +287,7 @@ pre {
 .tools-group-mark {
   margin: -5px 10px 6px;
   height: 11px;
-  padding: 2px 7px 3px 7px;
+  padding: 2px 7px 3px;
   font-size: 5px;
   font-weight: 500;
   color: #fff;
@@ -295,7 +296,7 @@ pre {
   border-radius: 59px;
 }
 
-.tools-group:last-child .tools-group-mark {
+.artoficial-intelligence .tools-group-mark {
   margin: -5px 0 6px;
 }
 
@@ -313,7 +314,7 @@ a {
 }
 
 .education h2 {
-  margin: 0 70px 16px 0;
+  margin: 0 0 16px;
 }
 
 .education-subblock {
@@ -378,7 +379,7 @@ a {
 }
 
 .interests h2 {
-  margin: 0 120px 8px 0;
+  margin: 0 0 8px;
 }
 
 .interest {
@@ -468,7 +469,7 @@ a {
     left: 170px;
     width: 250px;
     height: 80px;
-    padding: 0 15px;
+    padding: 0 15px 2px;
   }
 
   .languages h2 {
@@ -484,6 +485,7 @@ a {
   }
 
   .language:last-child .language-meter {
+    margin-top: 2px;
     width: 50%;
   }
 
@@ -520,7 +522,7 @@ a {
   }
 
   .interests h2 {
-    margin: -5px 90px 0 0;
+    margin: -5px 0 -2px;
   }
 
   .interest {
@@ -530,7 +532,7 @@ a {
 
   .tools {
     position: absolute;
-    top: 701px;
+    top: 700px;
     left: 182px;
     flex-direction: row;
     justify-content: space-between;
@@ -540,11 +542,12 @@ a {
   }
 
   .tools h2 {
-    margin: -5px 120px 20px 0;
+    margin: -5px 0 20px;
   }
 
   .tools-group {
-    margin: -12px 0px 0 0;
+    margin: -12px 0 0;
+    justify-content: space-evenly;
     padding-bottom: 80px;
     width: 65px;
     height: 170px;
@@ -556,6 +559,15 @@ a {
 
   .tools-group img {
     width: 25px;
+  }
+
+  .artoficial-intelligence a:last-child {
+    margin-top: 11px;
+    margin-left: 4px;
+  }
+
+  .artoficial-intelligence .tools-group-mark {
+    padding: 2px 3px 3px;
   }
 
   .chat {
@@ -632,12 +644,13 @@ a {
   }
 
   .experience {
-    margin-bottom: 10px;
     position: relative;
     top: 67px;
-    height: 442px;
     flex-direction: column;
     justify-content: flex-start;
+    margin-bottom: 10px;
+    height: 442px;
+    padding-bottom: 0;
   }
 
   .experience h2 {
@@ -677,14 +690,14 @@ a {
   }
 
   .tools {
-    margin-left: -24px;
+    margin: 1px 0 0 -24px;
     width: 152px;
     height: 392px;
     align-items: center;
   }
 
   .tools h2 {
-    margin: -5px 120px 6px 0;
+    margin: -6px 0 6px;
   }
 
   .tools-group {
@@ -705,12 +718,16 @@ a {
     height: 84px;
   }
 
-  .tools-group:last-child .tools-group-mark {
-    margin: -5px 0 3px;
-  }
-
   .tools-group-mark {
     margin: -5px 20px 2px;
+  }
+
+  .artoficial-intelligence .tools-group-mark {
+    padding: 2px 7px 3px;
+  }
+
+  .artoficial-intelligence a:last-child {
+    margin: 0 42px 0 0;
   }
 
   .interests {
@@ -720,7 +737,7 @@ a {
   }
 
   .interests h2 {
-    margin: -8px 160px 0 0;
+    margin-top: -8px;
   }
 
   .interest {

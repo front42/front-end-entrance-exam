@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "import/no-unresolved": "off"
   }
 }
