@@ -1,8 +1,8 @@
-# <img src="./public/javascript.svg" alt="JavaScript" height="23"/>&#8239;Front-end entrance<img src="./public/vite.svg" alt="Vite" height="23"/>
+# <img src="./public/javascript.svg" alt="JavaScript" width="23" height="23"/>&#8239;Front-end entrance<img src="./public/vite.svg" alt="Vite" width="23" height="23"/>
 Let's take the task below as a challenge - and try Pixel Perfect layout in true hard way:  
 all elements will come from **JavaScript** only! No innerHTML. No regrets.  
 
-<img src="https://rolling-scopes-school.github.io/front42-JSFE2021Q1/presentation/z/front42.jpg" alt="logo" height="23"/>  
+<img src="https://rolling-scopes-school.github.io/front42-JSFE2021Q1/presentation/z/front42.jpg" alt="logo" width="107" height="40"/>  
 
 Clone this repository - for example with SSH:  
 **git clone** git@github.com:front42/front-end-entrance-exam.git  

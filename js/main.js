@@ -238,7 +238,7 @@ const toolsBlock = document.querySelector('.tools');
 const toolsGroupsNames = ['design', 'no-code', 'artoficial intelligence'];
 for (let i = 0; i < toolsGroupsNames.length; i++) {
   const toolsGroup = document.createElement('div');
-  toolsGroup.classList.add('tools-group', toolsGroupsNames[i].replaceAll(' ', '-'));
+  toolsGroup.classList.add('tools-group', toolsGroupsNames[i].replace(/ /g, '-'));
   const toolsGroupMark = document.createElement('span');
   toolsGroupMark.classList.add('tools-group-mark', 'rippled-element');
   toolsGroupMark.textContent = toolsGroupsNames[i];
